@@ -11,3 +11,5 @@ class TestArithmetic(unittest.TestCase):
         with self.assertRaises(TypeError):
             arithmetic.add(1, '2')
 
+if __name__ == '__main__':
+    unittest.main()
