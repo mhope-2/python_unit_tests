@@ -3,6 +3,14 @@ from employee import Employee
 
 class TestEmployee(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(cls):
+        print("setUpClass")
+
+    @classmethod
+    def tearDownClass(cls):
+        print("tearDownClass")
+
     def setUp(self):
         self.emp1 = Employee(first_name='Michael', last_name='Hope', pay=50000)
         self.emp2 = Employee(first_name='John', last_name='Hagan', pay=60000)
@@ -26,8 +34,11 @@ class TestEmployee(unittest.TestCase):
     def test_full_name(self):
         """ Test employee full name """
 
-        self.assertEqual(self.emp1.full_name, 'Jay Smith')
-        self.assertEqual(self.emp2.full_name, 'Say Mannor')
+        self.emp1.first_name = 'Karen'
+        self.emp2.first_name = 'Sue'
+
+        self.assertEqual(self.emp1.full_name, 'Karen Hope')
+        self.assertEqual(self.emp2.full_name, 'Sue Hagan')
 
     
     def test_apply_raise(self):
