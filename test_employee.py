@@ -5,10 +5,13 @@ class TestEmployee(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        """ Runs at the very beginning of the test"""
         print("setUpClass")
+
 
     @classmethod
     def tearDownClass(cls):
+        """ Runs at the very end of the test"""
         print("tearDownClass")
 
     def setUp(self):
