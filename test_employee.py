@@ -1,5 +1,6 @@
 import unittest
 from employee import Employee
+import requests
 
 class TestEmployee(unittest.TestCase):
 
@@ -53,6 +54,15 @@ class TestEmployee(unittest.TestCase):
 
         self.assertEqual(self.emp1.pay, 52500)
         self.assertEqual(self.emp2.pay, 63000)
+
+    
+    # Mocking
+    def monthly_schedule(self, month):
+        response = requests.get("http://company.com/{}/{}".format(self.last_name, month))
+        if response.ok:
+            return response.text
+        else:
+            return response.status_code
 
 
 if __name__ == '__main__':
