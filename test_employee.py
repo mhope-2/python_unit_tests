@@ -48,7 +48,6 @@ class TestEmployee(unittest.TestCase):
     def test_apply_raise(self):
         """ Test employee raise """
 
-
         self.emp1.apply_raise()
         self.emp2.apply_raise()
 
@@ -59,6 +58,12 @@ class TestEmployee(unittest.TestCase):
     def test_monthly_schedule(self):
         with patch('employee.requests.get') as mocked_get:
             mocked_get.return_value = True
+            mocked_get.return_value.text = 'success'
+
+            schedule = self.emp1.monthly_schedule('May')
+            mocked_get.assert_called_with('http://company.com/Hope/May')
+            self.assertEqual(schedule, 'success')
+            
 
 
 if __name__ == '__main__':
