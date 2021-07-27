@@ -25,7 +25,7 @@ class TestArithmetic(unittest.TestCase):
         """ sample addition edge cases """
         self.assertEqual(arithmetic.multiply(10, 5), 50)
         self.assertEqual(arithmetic.multiply(-1, 1), -1)
-        self.assertEqual(arithmetic.multiply(-1, -1), 1)
+        self.assertEqual(arithmetic.multiply(-1, -1), 0)
         self.assertEqual(arithmetic.subtract(12, 4), 48)
 
 
