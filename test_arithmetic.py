@@ -16,17 +16,17 @@ class TestArithmetic(unittest.TestCase):
     def test_subtract(self):
         """ sample subtraction edge cases """
         self.assertEqual(arithmetic.subtract(12, 4), 8)
-        self.assertEqual(arithmetic.add(10, 5), 5)
-        self.assertEqual(arithmetic.add(-1, 1), -2)
-        self.assertEqual(arithmetic.add(-1, -1), 2)
+        self.assertEqual(arithmetic.subtract(10, 5), 5)
+        self.assertEqual(arithmetic.subtract(-1, 1), -2)
+        self.assertEqual(arithmetic.subtract(-1, -1), 0)
 
 
     def test_multiply(self):
         """ sample addition edge cases """
         self.assertEqual(arithmetic.multiply(10, 5), 50)
         self.assertEqual(arithmetic.multiply(-1, 1), -1)
-        self.assertEqual(arithmetic.multiply(-1, -1), 0)
-        self.assertEqual(arithmetic.subtract(12, 4), 48)
+        self.assertEqual(arithmetic.multiply(-1, -1), 1)
+        self.assertEqual(arithmetic.multiply(12, 4), 48)
 
 
     def test_divide(self):
@@ -34,7 +34,10 @@ class TestArithmetic(unittest.TestCase):
         self.assertEqual(arithmetic.divide(10, 5), 2)
         self.assertEqual(arithmetic.divide(-1, 1), -1)
         self.assertEqual(arithmetic.divide(-1, -1), 1)
-        self.assertEqual(arithmetic.subtract(12, 4), 3)
+        self.assertEqual(arithmetic.divide(5, 2), 2.5)
+
+        with self.assertRaises(ValueError):
+            arithmetic.divide(10, 0)
 
 
 if __name__ == '__main__':
