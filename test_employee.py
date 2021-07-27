@@ -27,6 +27,22 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(emp1.full_name, 'Jay Smith')
         self.assertEqual(emp2.full_name, 'Say Mannor')
 
+    
+    def test_apply_raise(self):
+        """ Test employee raise """
+
+        emp1 = Employee(first_name='Suzzy', last_name='Jackie', pay=50000.12)
+        emp2 = Employee(first_name='Sammy', last_name='Tay', pay=4512.45)
+
+        emp1.apply_raise()
+        emp2.apply_raise()
+
+        self.assertEqual(emp1.pay, 52500.126)
+        self.assertEqual(emp2.pay, 4738.0725)
+
+
+
+
 
 
 
