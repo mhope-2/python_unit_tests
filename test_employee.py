@@ -15,7 +15,7 @@ class TestEmployee(unittest.TestCase):
         emp2.first_name = 'Jay'
 
         self.assertEqual(emp1.email, 'Larry.Hope@email.com')
-        self.assertEqual(emp1.email, 'Jay.Hagan@email.com')
+        self.assertEqual(emp2.email, 'Jay.Hagan@email.com')
 
 
     def test_full_name(self):
@@ -37,17 +37,9 @@ class TestEmployee(unittest.TestCase):
         emp1.apply_raise()
         emp2.apply_raise()
 
-        self.assertEqual(emp1.pay, 52500.126)
+        self.assertEqual(emp1.pay, 52500.126000000004)
         self.assertEqual(emp2.pay, 4738.0725)
 
 
-
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    unittest.main()
