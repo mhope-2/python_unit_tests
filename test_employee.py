@@ -57,12 +57,18 @@ class TestEmployee(unittest.TestCase):
     
     def test_monthly_schedule(self):
         with patch('employee.requests.get') as mocked_get:
-            mocked_get.return_value = True
+            mocked_get.return_value.ok = True
             mocked_get.return_value.text = 'success'
 
             schedule = self.emp1.monthly_schedule('May')
             mocked_get.assert_called_with('http://company.com/Hope/May')
             self.assertEqual(schedule, 'success')
+
+            mocked_get.return_value.ok = False
+
+            schedule = self.emp2.monthly_schedule('June')
+            mocked_get.assert_called_with('http://company.com/Hagan/June')
+            self.assertEqual(schedule, "failed")
             
 
 

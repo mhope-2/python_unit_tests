@@ -26,4 +26,4 @@ class Employee:
         if response.ok:
             return response.text
         else:
-            return response.status_code
+            return "failed"
